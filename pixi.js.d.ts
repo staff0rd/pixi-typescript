@@ -330,7 +330,10 @@ declare module PIXI {
          once(event: 'touchmove', fn: (event: interaction.InteractionEvent) => void, context?: any): utils.EventEmitter;
          once(event: 'touchstart', fn: (event: interaction.InteractionEvent) => void, context?: any): utils.EventEmitter;
          */
-
+        
+        // pixi-display
+        displayGroup: DisplayGroup;
+        zOrder: number;
     }
     export class Container extends DisplayObject {
 
@@ -372,6 +375,9 @@ declare module PIXI {
         on(event: 'removed', fn: (DisplayObject: DisplayObject) => void, context?: any): utils.EventEmitter;
         on(event: string, fn: Function, context?: any): utils.EventEmitter;
         off(event: string, fn: Function, context?: any): utils.EventEmitter;
+
+        // pixi-display
+        displayList: DisplayList;
 
     }
     export class ObservablePoint {
@@ -2428,6 +2434,18 @@ declare module PIXI {
 
         }
 
+    }
+
+    //////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////PIXI-DISPLAY///////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////
+    
+    export class DisplayList {
+
+    }
+
+    export class DisplayGroup extends utils.EventEmitter {
+        constructor(zIndex: number, sorting?: boolean | Function);
     }
 
 }
