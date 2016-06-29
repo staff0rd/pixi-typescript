@@ -456,7 +456,7 @@ declare module PIXI {
         type: number;
         clone(): GraphicsData;
         addHole(shape: Shape | Circle | Rectangle | RoundedRectangle | Ellipse | Polygon): void;
-        destroy(); void;
+        destroy(): void;
 
     }
     export class Graphics extends Container {
@@ -1131,8 +1131,8 @@ declare module PIXI {
 
         protected _onTextureUpdate(): void;
         protected calculateVertices(): void;
-        protected _renderWebGL(renderer: WebGLRenderer);
-        protected _renderCanvas(renderer: CanvasRenderer);
+        protected _renderWebGL(renderer: WebGLRenderer): void;
+        protected _renderCanvas(renderer: CanvasRenderer): void;
         getBounds(): Rectangle;
         getLocalBounds(): Rectangle;
         containsPoint(point: Point): boolean;
@@ -2157,7 +2157,8 @@ declare module PIXI {
             destroy(): void;
 
         }
-        export interface ParticleBuffer {
+
+        export class ParticleBuffer {
 
             constructor(gl: WebGLRenderingContext, properties: any, dynamicPropertyFlags: any[], size: number);
 
