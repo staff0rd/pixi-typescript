@@ -369,6 +369,7 @@ declare module PIXI {
          */
         
         // pixi-display
+        displayList: DisplayList;
         displayGroup: DisplayGroup;
         zOrder: number;
     }
